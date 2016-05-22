@@ -1,4 +1,9 @@
 ---
 - hosts: all
-  tasks:
-      - shell: echo "banana" > /tmp/test.txt
+  become: true
+  become_user: root
+  vars:
+    docker_run_helloworld: true
+  roles:
+      - docker-engine
+
